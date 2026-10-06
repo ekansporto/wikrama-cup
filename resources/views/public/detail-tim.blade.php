@@ -16,7 +16,7 @@
         </a>
 
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-            <img src="{{ $team->logo_url }}" alt="{{ $team->nama_tim }}" class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-cover bg-[#111C38] border-2 border-[#1E2D5A] shadow-xl shrink-0">
+            <img src="{{ $team->logo_url }}" alt="{{ $team->nama_tim }}" class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-contain bg-[#111C38] border-2 border-[#1E2D5A] shadow-xl shrink-0">
             <div class="space-y-2 text-center sm:text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-extrabold uppercase tracking-wider border border-orange-500/30">
                     Official WikCup Roster

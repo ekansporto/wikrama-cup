@@ -21,7 +21,7 @@
             <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-orange-200 transition duration-200 flex flex-col justify-between group">
                 <div class="space-y-4">
                     <div class="flex items-center gap-4">
-                        <img src="{{ $team->logo_url }}" alt="{{ $team->nama_tim }}" class="w-16 h-16 rounded-2xl object-cover bg-slate-50 border border-slate-200 group-hover:scale-105 transition duration-200 shadow-sm shrink-0">
+                        <img src="{{ $team->logo_url }}" alt="{{ $team->nama_tim }}" class="w-16 h-16 rounded-2xl object-contain bg-slate-50 border border-slate-200 group-hover:scale-105 transition duration-200 shadow-sm shrink-0">
                         <div>
                             <h3 class="font-black text-lg text-[#0B132B] group-hover:text-orange-600 transition leading-snug">
                                 {{ $team->nama_tim }}

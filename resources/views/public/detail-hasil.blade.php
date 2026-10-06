@@ -30,7 +30,7 @@
                             <span class="inline-block px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mt-1">WINNER</span>
                         @endif
                     </div>
-                    <img src="{{ $match->teamA->logo_url }}" alt="{{ $match->teamA->nama_tim }}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover bg-slate-800 border border-slate-700 shadow-md">
+                    <img src="{{ $match->teamA->logo_url }}" alt="{{ $match->teamA->nama_tim }}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-contain bg-slate-800 border border-slate-700 shadow-md">
                 </div>
 
                 <!-- Score Numbers -->
@@ -50,7 +50,7 @@
                             <span class="inline-block px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mt-1">WINNER</span>
                         @endif
                     </div>
-                    <img src="{{ $match->teamB->logo_url }}" alt="{{ $match->teamB->nama_tim }}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover bg-slate-800 border border-slate-700 shadow-md">
+                    <img src="{{ $match->teamB->logo_url }}" alt="{{ $match->teamB->nama_tim }}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-contain bg-slate-800 border border-slate-700 shadow-md">
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
         <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="{{ $match->teamA->logo_url }}" alt="" class="w-8 h-8 rounded-lg object-cover bg-slate-800 border border-slate-700">
+                <img src="{{ $match->teamA->logo_url }}" alt="" class="w-8 h-8 rounded-lg object-contain bg-slate-800 border border-slate-700">
                 <h3 class="text-lg font-bold">{{ $match->teamA->nama_tim }} — Statistik Pemain</h3>
             </div>
             <span class="text-xs text-orange-400 font-semibold uppercase tracking-wider">Total Skor: {{ $match->skor_tim_a }}</span>
@@ -128,7 +128,7 @@
     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
         <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="{{ $match->teamB->logo_url }}" alt="" class="w-8 h-8 rounded-lg object-cover bg-slate-800 border border-slate-700">
+                <img src="{{ $match->teamB->logo_url }}" alt="" class="w-8 h-8 rounded-lg object-contain bg-slate-800 border border-slate-700">
                 <h3 class="text-lg font-bold">{{ $match->teamB->nama_tim }} — Statistik Pemain</h3>
             </div>
             <span class="text-xs text-orange-400 font-semibold uppercase tracking-wider">Total Skor: {{ $match->skor_tim_b }}</span>

@@ -60,6 +60,11 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->as('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('teams', AdminTeamController::class);
+    
+    // Custom match stats route must be before resource
+    Route::get('matches/{match}/stats', [AdminMatchController::class, 'editStats'])->name('matches.stats.edit');
+    Route::put('matches/{match}/stats', [AdminMatchController::class, 'updateStats'])->name('matches.stats.update');
+    
     Route::resource('matches', AdminMatchController::class);
     Route::resource('statistics', AdminStatisticController::class);
     Route::resource('galleries', AdminGalleryController::class);

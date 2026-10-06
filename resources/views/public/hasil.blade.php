@@ -38,7 +38,7 @@
                         <div class="grid grid-cols-7 items-center my-6">
                             <!-- Team A -->
                             <div class="col-span-3 flex items-center gap-3">
-                                <img src="{{ $result->teamA->logo_url }}" alt="{{ $result->teamA->nama_tim }}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover border border-slate-200 flex-shrink-0 bg-slate-50">
+                                <img src="{{ $result->teamA->logo_url }}" alt="{{ $result->teamA->nama_tim }}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain border border-slate-200 flex-shrink-0 bg-slate-50">
                                 <div>
                                     <a href="{{ route('team.show', $result->teamA->id_team) }}" class="font-extrabold text-[#0B132B] text-sm sm:text-base hover:text-orange-600 transition block {{ $result->skor_tim_a > $result->skor_tim_b ? 'text-[#FF5722] font-black' : '' }}">
                                         {{ $result->teamA->nama_tim }}
@@ -66,7 +66,7 @@
                                         <span class="inline-block mt-0.5 px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black rounded-md uppercase tracking-wider">Menang</span>
                                     @endif
                                 </div>
-                                <img src="{{ $result->teamB->logo_url }}" alt="{{ $result->teamB->nama_tim }}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover border border-slate-200 flex-shrink-0 bg-slate-50">
+                                <img src="{{ $result->teamB->logo_url }}" alt="{{ $result->teamB->nama_tim }}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain border border-slate-200 flex-shrink-0 bg-slate-50">
                             </div>
                         </div>
                     </div>

@@ -37,7 +37,7 @@
                         </td>
                         <td class="px-6 py-4 font-bold text-slate-900">
                             <div class="flex items-center gap-2">
-                                <img src="{{ $m->teamA->logo_url }}" alt="" class="w-7 h-7 rounded-lg object-cover bg-slate-100 border border-slate-200">
+                                <img src="{{ $m->teamA->logo_url }}" alt="" class="w-7 h-7 rounded-lg object-contain bg-slate-100 border border-slate-200">
                                 <span>{{ $m->teamA->nama_tim }}</span>
                             </div>
                         </td>
@@ -50,7 +50,7 @@
                         </td>
                         <td class="px-6 py-4 font-bold text-slate-900">
                             <div class="flex items-center gap-2">
-                                <img src="{{ $m->teamB->logo_url }}" alt="" class="w-7 h-7 rounded-lg object-cover bg-slate-100 border border-slate-200">
+                                <img src="{{ $m->teamB->logo_url }}" alt="" class="w-7 h-7 rounded-lg object-contain bg-slate-100 border border-slate-200">
                                 <span>{{ $m->teamB->nama_tim }}</span>
                             </div>
                         </td>
@@ -67,8 +67,8 @@
                             @endif
                         </td>
                         <td class="px-6 py-4 text-right space-x-2">
-                            <a href="{{ route('admin.statistics.index', ['match_id' => $m->id_match]) }}" class="text-xs font-bold text-slate-700 hover:text-slate-900">
-                                Stats
+                            <a href="{{ route('admin.matches.stats.edit', $m->id_match) }}" class="inline-flex items-center px-2 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-md text-[10px] font-bold hover:bg-blue-600 hover:text-white transition-colors">
+                                Input Box Score
                             </a>
                             <a href="{{ route('admin.matches.edit', $m->id_match) }}" class="text-xs font-bold text-orange-600 hover:text-orange-700">
                                 Edit

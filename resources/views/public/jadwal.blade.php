@@ -52,7 +52,7 @@
                         <div class="grid grid-cols-5 items-center my-4">
                             <!-- Team A -->
                             <div class="col-span-2 text-center space-y-2">
-                                <img src="{{ $match->teamA->logo_url }}" alt="{{ $match->teamA->nama_tim }}" class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-2xl object-cover shadow-sm bg-slate-50 border border-slate-200">
+                                <img src="{{ $match->teamA->logo_url }}" alt="{{ $match->teamA->nama_tim }}" class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-2xl object-contain shadow-sm bg-slate-50 border border-slate-200">
                                 <a href="{{ route('team.show', $match->teamA->id_team) }}" class="font-black text-[#0B132B] text-sm hover:text-orange-600 transition line-clamp-1 block">
                                     {{ $match->teamA->nama_tim }}
                                 </a>
@@ -67,7 +67,7 @@
 
                             <!-- Team B -->
                             <div class="col-span-2 text-center space-y-2">
-                                <img src="{{ $match->teamB->logo_url }}" alt="{{ $match->teamB->nama_tim }}" class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-2xl object-cover shadow-sm bg-slate-50 border border-slate-200">
+                                <img src="{{ $match->teamB->logo_url }}" alt="{{ $match->teamB->nama_tim }}" class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-2xl object-contain shadow-sm bg-slate-50 border border-slate-200">
                                 <a href="{{ route('team.show', $match->teamB->id_team) }}" class="font-black text-[#0B132B] text-sm hover:text-orange-600 transition line-clamp-1 block">
                                     {{ $match->teamB->nama_tim }}
                                 </a>

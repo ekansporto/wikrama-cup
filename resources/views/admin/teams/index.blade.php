@@ -29,7 +29,7 @@
                 @forelse($teams as $team)
                     <tr class="hover:bg-slate-50 transition">
                         <td class="px-6 py-4">
-                            <img src="{{ $team->logo_url }}" alt="{{ $team->nama_tim }}" class="w-12 h-12 rounded-xl object-cover bg-slate-100 border border-slate-200">
+                            <img src="{{ $team->logo_url }}" alt="{{ $team->nama_tim }}" class="w-12 h-12 rounded-xl object-contain bg-slate-100 border border-slate-200">
                         </td>
                         <td class="px-6 py-4 font-bold text-slate-900 text-base">
                             {{ $team->nama_tim }}
