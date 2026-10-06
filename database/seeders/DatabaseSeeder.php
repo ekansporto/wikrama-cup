@@ -39,6 +39,13 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
+        $admin2 = User::create([
+            'name' => 'Admin Utama',
+            'email' => 'adminutama@gmail.com',
+            'password' => Hash::make('password123'),
+            'role' => 'admin',
+        ]);
+
         // 2. Seed Teams (Boys & Girls Divisions with clear School affiliations)
         $teamsData = [
             ['nama_tim' => 'SMK Wikrama Thunder', 'logo' => null],
