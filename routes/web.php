@@ -61,11 +61,20 @@ Route::prefix('admin')->as('admin.')->middleware(['auth', 'admin'])->group(funct
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('teams', AdminTeamController::class);
     
-    // Custom match stats route must be before resource
-    Route::get('matches/{match}/stats', [AdminMatchController::class, 'editStats'])->name('matches.stats.edit');
-    Route::put('matches/{match}/stats', [AdminMatchController::class, 'updateStats'])->name('matches.stats.update');
+    // Redirect old match stats route to admin.statistics.index
+    Route::get('matches/{match}/stats', function ($match) {
+        return redirect()->route('admin.statistics.index', ['match_id' => $match]);
+    })->name('matches.stats.edit');
     
     Route::resource('matches', AdminMatchController::class);
-    Route::resource('statistics', AdminStatisticController::class);
+    
+    // Dedicated Box Score & Statistics routes
+    Route::get('statistics', [AdminStatisticController::class, 'index'])->name('statistics.index');
+    Route::put('statistics/batch/{match}', [AdminStatisticController::class, 'updateBatch'])->name('statistics.batch.update');
+    Route::post('statistics/player', [AdminStatisticController::class, 'storePlayer'])->name('statistics.player.store');
+    Route::post('statistics/team', [AdminStatisticController::class, 'storeTeam'])->name('statistics.team.store');
+    Route::delete('statistics/{id}', [AdminStatisticController::class, 'destroy'])->name('statistics.destroy');
+    Route::delete('statistics/match/{match}/clear', [AdminStatisticController::class, 'clearMatchStats'])->name('statistics.match.clear');
+    
     Route::resource('galleries', AdminGalleryController::class);
 });

@@ -4,14 +4,19 @@
 
 @section('content')
 <!-- Page Header Banner -->
-<div class="relative bg-gradient-to-b from-white via-orange-50/20 to-[#F8FAFC] py-14 border-b border-slate-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="relative py-14 border-b border-slate-200/80 bg-white overflow-hidden">
+    <!-- Abstract Blurred Circles Background (Samain persis design) -->
+    <div class="absolute -top-16 left-1/4 w-[420px] h-[420px] rounded-full bg-orange-300/40 blur-[110px] pointer-events-none"></div>
+    <div class="absolute top-0 right-10 w-[380px] h-[380px] rounded-full bg-cyan-200/40 blur-[100px] pointer-events-none"></div>
+    <div class="absolute -bottom-10 left-10 w-[320px] h-[320px] rounded-full bg-emerald-200/30 blur-[90px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-orange-600 text-xs font-bold mb-3 uppercase tracking-wider shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-[#FF5722] animate-pulse"></span>
-            Match Results
+            <span class="w-2 h-2 rounded-full bg-[#EA580C] animate-pulse"></span>
+            Turnamen Basket Resmi SMK Wikrama Bogor
         </div>
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B132B]">Hasil Pertandingan</h1>
-        <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl font-normal">Skor akhir dan rekap pertandingan resmi Wikrama Cup Basketball</p>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl font-normal">Skor akhir dan rekap pertandingan resmi turnamen Wikrama Cup Basketball SMK Wikrama Bogor</p>
     </div>
 </div>
 
@@ -34,39 +39,42 @@
                             </div>
                         </div>
 
-                        <!-- Teams and Scores -->
-                        <div class="grid grid-cols-7 items-center my-6">
+                        <!-- Teams Face-Off with Scores (Spacious & Clean Layout) -->
+                        <div class="grid grid-cols-7 items-center py-6 gap-2 sm:gap-4">
                             <!-- Team A -->
-                            <div class="col-span-3 flex items-center gap-3">
-                                <img src="{{ $result->teamA->logo_url }}" alt="{{ $result->teamA->nama_tim }}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain border border-slate-200 flex-shrink-0 bg-slate-50">
-                                <div>
-                                    <a href="{{ route('team.show', $result->teamA->id_team) }}" class="font-extrabold text-[#0B132B] text-sm sm:text-base hover:text-orange-600 transition block {{ $result->skor_tim_a > $result->skor_tim_b ? 'text-[#FF5722] font-black' : '' }}">
-                                        {{ $result->teamA->nama_tim }}
-                                    </a>
-                                    @if($result->skor_tim_a > $result->skor_tim_b)
-                                        <span class="inline-block mt-0.5 px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black rounded-md uppercase tracking-wider">Menang</span>
-                                    @endif
-                                </div>
+                            <div class="col-span-2 flex flex-col items-center text-center">
+                                <img src="{{ $result->teamA->logo_url }}" alt="{{ $result->teamA->nama_tim }}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-contain border border-slate-200 bg-slate-50 shadow-sm p-1.5 mb-2">
+                                <a href="{{ route('team.show', $result->teamA->id_team) }}" class="font-extrabold text-[#0B132B] text-xs sm:text-sm hover:text-orange-600 transition block line-clamp-2 {{ $result->skor_tim_a > $result->skor_tim_b ? 'text-[#EA580C] font-black' : '' }}" title="{{ $result->teamA->nama_tim }}">
+                                    {{ $result->teamA->nama_tim }}
+                                </a>
+                                @if($result->skor_tim_a > $result->skor_tim_b)
+                                    <span class="mt-1.5 inline-block px-2.5 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black rounded-full uppercase tracking-wider">Menang</span>
+                                @endif
                             </div>
 
-                            <!-- Score Center -->
-                            <div class="col-span-1 text-center font-black text-2xl sm:text-3xl tracking-tight">
-                                <span class="{{ $result->skor_tim_a > $result->skor_tim_b ? 'text-[#FF5722]' : 'text-slate-800' }}">{{ $result->skor_tim_a }}</span>
-                                <span class="text-slate-300 mx-0.5">-</span>
-                                <span class="{{ $result->skor_tim_b > $result->skor_tim_a ? 'text-[#FF5722]' : 'text-slate-800' }}">{{ $result->skor_tim_b }}</span>
+                            <!-- Score Center (Horizontal & Clean) -->
+                            <div class="col-span-3 flex flex-col items-center justify-center text-center">
+                                <div class="flex items-center justify-center gap-2.5 sm:gap-4 whitespace-nowrap">
+                                    <span class="text-3xl sm:text-4xl font-black {{ $result->skor_tim_a >= $result->skor_tim_b ? 'text-[#EA580C]' : 'text-slate-800' }}">
+                                        {{ $result->skor_tim_a }}
+                                    </span>
+                                    <span class="text-slate-300 font-bold text-2xl sm:text-3xl">-</span>
+                                    <span class="text-3xl sm:text-4xl font-black {{ $result->skor_tim_b >= $result->skor_tim_a ? 'text-[#EA580C]' : 'text-slate-800' }}">
+                                        {{ $result->skor_tim_b }}
+                                    </span>
+                                </div>
+                                <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mt-1.5">Final Score</span>
                             </div>
 
                             <!-- Team B -->
-                            <div class="col-span-3 flex items-center justify-end gap-3 text-right">
-                                <div>
-                                    <a href="{{ route('team.show', $result->teamB->id_team) }}" class="font-extrabold text-[#0B132B] text-sm sm:text-base hover:text-orange-600 transition block {{ $result->skor_tim_b > $result->skor_tim_a ? 'text-[#FF5722] font-black' : '' }}">
-                                        {{ $result->teamB->nama_tim }}
-                                    </a>
-                                    @if($result->skor_tim_b > $result->skor_tim_a)
-                                        <span class="inline-block mt-0.5 px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black rounded-md uppercase tracking-wider">Menang</span>
-                                    @endif
-                                </div>
-                                <img src="{{ $result->teamB->logo_url }}" alt="{{ $result->teamB->nama_tim }}" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-contain border border-slate-200 flex-shrink-0 bg-slate-50">
+                            <div class="col-span-2 flex flex-col items-center text-center">
+                                <img src="{{ $result->teamB->logo_url }}" alt="{{ $result->teamB->nama_tim }}" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-contain border border-slate-200 bg-slate-50 shadow-sm p-1.5 mb-2">
+                                <a href="{{ route('team.show', $result->teamB->id_team) }}" class="font-extrabold text-[#0B132B] text-xs sm:text-sm hover:text-orange-600 transition block line-clamp-2 {{ $result->skor_tim_b > $result->skor_tim_a ? 'text-[#EA580C] font-black' : '' }}" title="{{ $result->teamB->nama_tim }}">
+                                    {{ $result->teamB->nama_tim }}
+                                </a>
+                                @if($result->skor_tim_b > $result->skor_tim_a)
+                                    <span class="mt-1.5 inline-block px-2.5 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black rounded-full uppercase tracking-wider">Menang</span>
+                                @endif
                             </div>
                         </div>
                     </div>

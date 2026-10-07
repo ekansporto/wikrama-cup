@@ -114,8 +114,8 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 text-right space-x-2">
-                                <a href="{{ route('admin.matches.edit', $m->id_match) }}" class="text-xs font-bold text-orange-600 hover:text-orange-700">Edit / Skor</a>
-                                <a href="{{ route('admin.statistics.create', ['match_id' => $m->id_match]) }}" class="text-xs font-bold text-slate-600 hover:text-slate-900">+ Stats</a>
+                                <a href="{{ route('admin.matches.edit', $m->id_match) }}" class="text-xs font-bold text-slate-600 hover:text-slate-900">Edit</a>
+                                <a href="{{ route('admin.statistics.index', ['match_id' => $m->id_match]) }}" class="text-xs font-bold text-orange-600 hover:text-orange-700">Box Score →</a>
                             </td>
                         </tr>
                     @empty

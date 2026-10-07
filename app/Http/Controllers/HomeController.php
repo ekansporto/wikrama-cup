@@ -13,6 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $today = Carbon::today();
+        $teamCount = \App\Models\Team::count();
 
         // 1. Pertandingan Terdekat (1–2 pertandingan yang belum selesai, urut tanggal terdekat)
         $upcomingMatches = MatchModel::with(['teamA', 'teamB'])
@@ -24,6 +25,20 @@ class HomeController extends Controller
             ->take(2)
             ->get();
 
+        if ($upcomingMatches->isEmpty()) {
+            $upcomingMatches = MatchModel::with(['teamA', 'teamB'])
+                ->whereNull('skor_tim_a')
+                ->orderBy('tanggal', 'asc')
+                ->take(2)
+                ->get();
+            if ($upcomingMatches->isEmpty()) {
+                $upcomingMatches = MatchModel::with(['teamA', 'teamB'])
+                    ->orderBy('tanggal', 'desc')
+                    ->take(2)
+                    ->get();
+            }
+        }
+
         // 2. Hasil Pertandingan Terbaru (2 pertandingan yang sudah selesai)
         $recentResults = MatchModel::with(['teamA', 'teamB'])
             ->whereNotNull('skor_tim_a')
@@ -32,6 +47,13 @@ class HomeController extends Controller
             ->orderBy('jam', 'desc')
             ->take(2)
             ->get();
+
+        if ($recentResults->isEmpty()) {
+            $recentResults = MatchModel::with(['teamA', 'teamB'])
+                ->orderBy('tanggal', 'desc')
+                ->take(2)
+                ->get();
+        }
 
         // 3. Statistik Teratas (Top Scorer, Top Assist, Top Rebound)
         // Top Scorer
@@ -60,7 +82,8 @@ class HomeController extends Controller
             'recentResults',
             'topScorerStat',
             'topAssistStat',
-            'topReboundStat'
+            'topReboundStat',
+            'teamCount'
         ));
     }
 }

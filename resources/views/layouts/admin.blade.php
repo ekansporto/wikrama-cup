@@ -20,11 +20,7 @@
         <div>
             <!-- Brand -->
             <div class="h-16 flex items-center px-6 bg-slate-950 border-b border-slate-800 gap-3">
-                <div class="w-8 h-8 bg-orange-600 flex items-center justify-center font-bold text-white text-base">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c1.78 0 3.42.59 4.75 1.58-1.57 2.05-3.8 3.51-6.38 4.07C9.64 6.77 8.35 4.5 6.8 2.8 8.39 2.3 10.14 2 12 2zm-7.07 3.33c1.47 1.63 2.68 3.79 3.37 6.4-2.8.6-5.26 2.05-6.85 4.1C1.16 14.54 1 13.3 1 12c0-2.45.88-4.7 2.36-6.46.2-.07.39-.14.57-.21zM12 22c-1.84 0-3.56-.5-5.05-1.37 1.57-1.95 3.9-3.32 6.55-3.87.67 2.67 1.94 4.89 3.48 6.46C15.5 23.63 13.8 24 12 24zm6.65-3.08c-1.46-1.5-2.67-3.62-3.34-6.17 2.76-.56 5.17-1.94 6.76-3.92.59 1.55.93 3.24.93 5.02 0 1.91-.4 3.73-1.12 5.37-.41-.1-.82-.2-1.23-.3zM12 14.75c-2.31 0-4.43-.88-6.04-2.34 2.37-.49 4.38-1.8 5.75-3.62 1.45 1.77 3.55 3.03 6.03 3.54-1.55 1.5-3.68 2.42-5.74 2.42z"/>
-                    </svg>
-                </div>
+                <img src="{{ asset('images/logo-wikcup.png') }}" alt="WIKCUP Logo" class="h-9 w-auto object-contain">
                 <div>
                     <div class="font-black text-sm tracking-tight text-white leading-none">WIKCUP ADMIN</div>
                     <div class="text-[10px] text-orange-500 font-bold uppercase tracking-wider mt-0.5">Turnamen Basket</div>
@@ -62,7 +58,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                     </svg>
-                    Statistik Total
+                    Box Score & Statistik
                 </a>
 
                 <a href="{{ route('admin.galleries.index') }}" 
@@ -120,22 +116,22 @@
         </header>
 
         <!-- FLASH NOTIFICATIONS -->
-        @if(session('success') || session('error') || $errors->any())
+        @if(session('success') || session('error') || (isset($errors) && $errors->any()))
             <div class="px-8 pt-6">
                 @if(session('success'))
-                    <div class="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-bold">
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-bold rounded-xl">
                         {{ session('success') }}
                     </div>
                 @endif
 
                 @if(session('error'))
-                    <div class="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-sm font-bold">
+                    <div class="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-sm font-bold rounded-xl">
                         {{ session('error') }}
                     </div>
                 @endif
 
-                @if($errors->any())
-                    <div class="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-sm">
+                @if(isset($errors) && $errors->any())
+                    <div class="p-4 bg-rose-50 border border-rose-200 text-rose-800 text-sm rounded-xl">
                         <div class="font-bold mb-2">Terjadi Kesalahan:</div>
                         <ul class="list-disc pl-5 space-y-1 font-medium">
                             @foreach($errors->all() as $err)

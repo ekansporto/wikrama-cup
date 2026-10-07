@@ -3,14 +3,19 @@
 @section('title', 'Galeri Pertandingan — WIKCUP Basketball')
 
 @section('content')
-<div class="relative bg-gradient-to-b from-white via-orange-50/20 to-[#F8FAFC] py-14 border-b border-slate-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="relative py-14 border-b border-slate-200/80 bg-white overflow-hidden">
+    <!-- Abstract Blurred Circles Background (Samain persis design) -->
+    <div class="absolute -top-16 left-1/4 w-[420px] h-[420px] rounded-full bg-orange-300/40 blur-[110px] pointer-events-none"></div>
+    <div class="absolute top-0 right-10 w-[380px] h-[380px] rounded-full bg-cyan-200/40 blur-[100px] pointer-events-none"></div>
+    <div class="absolute -bottom-10 left-10 w-[320px] h-[320px] rounded-full bg-emerald-200/30 blur-[90px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-orange-600 text-xs font-bold mb-3 uppercase tracking-wider shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-[#FF5722] animate-pulse"></span>
-            Photo Gallery
+            <span class="w-2 h-2 rounded-full bg-[#EA580C] animate-pulse"></span>
+            Turnamen Basket Resmi SMK Wikrama Bogor
         </div>
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0B132B]">Galeri Pertandingan</h1>
-        <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl font-normal">Momen aksi dan dokumentasi seru dari gelaran Wikrama Cup Basketball</p>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl font-normal">Momen aksi dan dokumentasi seru dari gelaran Wikrama Cup Basketball SMK Wikrama Bogor</p>
     </div>
 </div>
 
